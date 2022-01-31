@@ -13,7 +13,7 @@ const [todos, setTodos] = useState([{ text: 'Learn Hooks' }]);
 ```
 
 ## useReducer hook:
-   Lets you manage local state of complex components with reducer<br>
+ * Lets you manage local state of complex components with reducer<br>
 ```const [todos, dispatch] = useReducer(todosReducer);```
 
 ## Hook rules
