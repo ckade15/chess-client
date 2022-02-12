@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from 'axios';
 import Player from '../components/Player';
+import Footer from '../components/Footer';
 
 function Standard() {
     const [state, setState] = useState([]);
@@ -57,6 +58,7 @@ function Standard() {
                         })}
                     
                 </section>
+                <Footer type="mobile"/>
             </div>
         )
     }else{
@@ -84,6 +86,7 @@ function Standard() {
                         })}
                     
                 </section>
+                <Footer />
             </div>
         )
     }

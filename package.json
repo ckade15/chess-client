@@ -49,5 +49,5 @@
     "react-router-dom": "^6.2.1",
     "tailwindcss": "^3.0.18"
   },
-  "proxy": "http://localhost:5001"
+  "proxy": "https://api.fiderankings.kadewebsolutions.com"
 }

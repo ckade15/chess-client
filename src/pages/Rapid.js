@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from 'axios';
 import Player from '../components/Player';
+import Footer from "../components/Footer";
 
 function Rapid() {
     const [state, setState] = useState([]);
@@ -57,6 +58,7 @@ function Rapid() {
                         })}
                     
                 </section>
+                <Footer type="mobile" />
             </div>
         )
     }else{
@@ -83,6 +85,7 @@ function Rapid() {
                         })}
                     
                 </section>
+                <Footer />
             </div>
         )
     }
