@@ -3,13 +3,13 @@ import { useState } from "react";
 import axios from 'axios';
 import Player from '../components/Player';
 
-function Standard() {
+function Blitz() {
     const [state, setState] = useState([]);
     const [loading, setLoading] = useState(true);
     const [width, setWidth] = useState(0);
 
-    const getStandard = async () => {
-        const req = await axios.get('/api/v1/standard');
+    const getBlitz = async () => {
+        const req = await axios.get('/api/v1/blitz');
         //localStorage.setItem('standard', JSON.stringify(req.data.data));
         setState(req.data.data);
         setLoading(false);
@@ -23,7 +23,7 @@ function Standard() {
             getStandard();
             setLoading(false);
         }*/
-        getStandard();
+        getBlitz();
     }
     useEffect(() => {
         setWidth(window.innerWidth);
@@ -31,16 +31,16 @@ function Standard() {
             handleStorage();
             
         }
-        document.title = "Standard Rankings";
+        document.title = "Blitz Rankings";
         
     }, []);  
     if (width < 768) {
         return (
             <div className="bg-blue-100 min-h-screen">
                 <header className="p-10 flex flex-col place-items-center">
-                    <h1 className='text-red-600 text-center text-4xl font-bold'>FIDE Chess Top 100 Standard Rankings</h1> 
-                    <a href="/" className="mt-4 text-lg font-bold">Blitz Rankings</a> 
+                    <h1 className='text-red-600 text-center text-4xl font-bold'>FIDE Chess Top 100 Blitz Rankings</h1>
                     <a href="/rapid" className="mt-4 text-lg font-bold">Rapid Rankings</a>  
+                    <a href="/standard" className="mt-2 text-lg font-bold">Standard Rankings</a>
                 </header>
                 <section className="w-full flex flex-col place-content-center place-items-center bg-red-200 pb-10">
                     <div className="w-full bg-gray-200 h-20 grid grid-cols-4 mb-6">
@@ -48,7 +48,7 @@ function Standard() {
                         <p className="p-6">Name</p>
                         <p className="p-6">Country</p>
                         <p className="p-6">Rating</p>
-                    </div>
+                    </div>    
                         {state.map((player)=> {
                             return (
                                 <Player ranking={player.ranking} name={player.name} country={player.country} rating={player.rating} avgRating={player.avgRating} type="mobile"/>
@@ -63,9 +63,9 @@ function Standard() {
         return (
             <div className="bg-blue-100 min-h-screen">
                 <header className="p-10 flex place-items-center">
-                    <h1 className='text-red-600 text-center text-4xl font-bold'>FIDE Chess Top 100 Standard Rankings</h1>
-                    <a href="/" className="ml-40 font-bold text-xl font-mono hover:text-blue-800">Blitz Rankings</a>  
-                    <a href="/rapid" className="ml-10 font-bold text-xl font-mono hover:text-blue-800">Rapid Rankings</a>  
+                    <h1 className='text-red-600 text-center text-4xl font-bold font-mono'>FIDE Chess Top 100 Blitz Rankings</h1>  
+                    <a href="/rapid" className="ml-40 font-bold text-xl font-mono hover:text-blue-800">Rapid Rankings</a>  
+                    <a href="/standard" className="ml-10 font-bold text-xl font-mono hover:text-blue-800">Standard Rankings</a>
                 </header>
                 <section className="w-full flex flex-col place-content-center place-items-center bg-red-200 pt-20 pb-10">
                     <div className="w-2/3 ml-auto mr-auto bg-gray-200 h-20 grid grid-cols-5 ">
@@ -75,7 +75,6 @@ function Standard() {
                         <p className="p-6">Rating</p>
                         <p className="p-6">Average Rating</p>
                     </div>
-                    
                         {state.map((player)=> {
                             return (
                                 <Player ranking={player.ranking} name={player.name} country={player.country} rating={player.rating} avgRating={player.avgRating}/>
@@ -91,4 +90,4 @@ function Standard() {
 
 }
 
-export default Standard;
+export default Blitz;
