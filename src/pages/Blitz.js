@@ -15,13 +15,11 @@ function Blitz() {
         setLoading(false);
         
     }
-    const handleStorage = () => {
-        getBlitz();
-    }
+
     useEffect(() => {
         setWidth(window.innerWidth);
         if (loading){
-            handleStorage();
+            getBlitz();
             
         }
         document.title = "Blitz Rankings";

@@ -15,13 +15,11 @@ function Rapid() {
         setLoading(false);
         
     }
-    const handleStorage = () => {
-        getRapid();
-    }
+
     useEffect(() => {
         setWidth(window.innerWidth);
         if (loading){
-            handleStorage();
+            getRapid();
             
         }
         document.title = "Rapid Rankings";

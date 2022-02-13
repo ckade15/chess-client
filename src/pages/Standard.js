@@ -14,13 +14,11 @@ function Standard() {
         setState(req.data.data);
         
     }
-    const handleStorage = () => {
-        getStandard();
-    }
+    
     useEffect(() => {
         setWidth(window.innerWidth);
         if (loading){
-            handleStorage();
+            getStandard();
             
         }
         document.title = "Standard Rankings";
