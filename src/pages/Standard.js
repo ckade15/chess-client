@@ -10,20 +10,11 @@ function Standard() {
     const [width, setWidth] = useState(0);
 
     const getStandard = async () => {
-        const req = await axios.get('/api/v1/standard');
-        //localStorage.setItem('standard', JSON.stringify(req.data.data));
+        const req = await axios.get('/api/v1/standard').then(res => {setLoading(false)});
         setState(req.data.data);
-        setLoading(false);
         
     }
     const handleStorage = () => {
-        /*if (localStorage.getItem("standard")) {
-            setState(JSON.stringify(localStorage.getItem("standard")));
-            setLoading(false);
-        }else {
-            getStandard();
-            setLoading(false);
-        }*/
         getStandard();
     }
     useEffect(() => {
@@ -50,7 +41,7 @@ function Standard() {
                         <p className="p-6">Country</p>
                         <p className="p-6">Rating</p>
                     </div>
-                        {state.map((player)=> {
+                        {loading ? <p>Loading players...</p> : state.map((player)=> {
                             return (
                                 <Player ranking={player.ranking} name={player.name} country={player.country} rating={player.rating} avgRating={player.avgRating} type="mobile"/>
                                 

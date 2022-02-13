@@ -11,19 +11,11 @@ function Rapid() {
 
     const getRapid = async () => {
         const req = await axios.get('/api/v1/rapid');
-        //localStorage.setItem('standard', JSON.stringify(req.data.data));
         setState(req.data.data);
         setLoading(false);
         
     }
     const handleStorage = () => {
-        /*if (localStorage.getItem("standard")) {
-            setState(JSON.stringify(localStorage.getItem("standard")));
-            setLoading(false);
-        }else {
-            getStandard();
-            setLoading(false);
-        }*/
         getRapid();
     }
     useEffect(() => {
