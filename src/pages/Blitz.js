@@ -5,14 +5,15 @@ import Player from '../components/Player';
 import Footer from '../components/Footer';
 
 function Blitz() {
+    const proxyurl = "https://api.fiderankings.kadewebsolutions.com/api/v1/blitz";
+
     const [state, setState] = useState([]);
     const [loading, setLoading] = useState(true);
     const [width, setWidth] = useState(0);
 
     const getBlitz = async () => {
-        const req = await axios.get('/api/v1/blitz');
+        const req = await axios.get(proxyurl).then(res => {setLoading(false); return res;});
         setState(req.data.data);
-        setLoading(false);
         
     }
 
