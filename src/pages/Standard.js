@@ -41,12 +41,12 @@ function Standard() {
                         <p className="p-6">Country</p>
                         <p className="p-6">Rating</p>
                     </div>
-                        {loading ? <p>Loading players...</p> : state.map((player)=> {
+                        {state.length > 1 ?  state.map((player)=> {
                             return (
                                 <Player ranking={player.ranking} name={player.name} country={player.country} rating={player.rating} avgRating={player.avgRating} type="mobile"/>
                                 
                             );
-                        })}
+                        }) : <p className="text-center text-lg font-bold text-red-500 bg-gray-200 w-full p-4">Standings are not loading due to hosting costs...</p>}
                     
                 </section>
                 <Footer type="mobile"/>
@@ -69,12 +69,12 @@ function Standard() {
                         <p className="p-6">Average Rating</p>
                     </div>
                     
-                        {state.map((player)=> {
+                        {state.length > 1 ? state.map((player)=> {
                             return (
                                 <Player ranking={player.ranking} name={player.name} country={player.country} rating={player.rating} avgRating={player.avgRating}/>
                                 
                             );
-                        })}
+                        }) : <p className="text-center text-xl font-bold text-red-500 bg-gray-200 w-2/3 p-4">Standings are not loading due to hosting costs...</p>}
                     
                 </section>
                 <Footer />
